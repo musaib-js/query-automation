@@ -24,6 +24,15 @@ So, my thought process to build the solution started with capturing the user req
 
 <hr>
 
+# Tech Stack Used
+
+<ul>
+<li> Python - Flask </li>
+<li> Gemini (gemini-1.5-flash)</li>
+<li> MongoDB </li>
+</ul>
+
+<hr>
 Final flow looks like following.
 
 ```mermaid
