@@ -1,3 +1,5 @@
+# Link to access the plaform: https://app.appsmith.com/app/query-submission-portal/page1-67e8377bd45638123b55f111
+
 # Thought process and the flow explanation
 
 
