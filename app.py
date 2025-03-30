@@ -8,6 +8,8 @@ import logging
 from queryclassification import classify_query
 from get_recommendation import get_recommendation
 from notifications import init_mail, send_email
+import textwrap
+from determine_team import get_team_email_id
 
 dotenv.load_dotenv()
 
@@ -80,12 +82,13 @@ def submit_dispute():
                 "recommendation": recommendation,
             }
         )
-
-        # Route to the specific customer service team
+        
+        team_mail = get_team_email_id(category)
+        
         send_email(
-            to="b120061@iiit-bh.ac.in",
+            to=team_mail,
             subject=f"Query - Customer ID: {cust_id}".format(cust_id=cust_id),
-            body=f"""Dear Team,
+            body=textwrap.dedent(f""" \
             
             The customer with ID {cust_id} has raised a query with the following details:
             
@@ -105,6 +108,7 @@ def submit_dispute():
             
             Banking Automation Team
             """,
+            ),
         )
 
         return jsonify(
@@ -113,6 +117,7 @@ def submit_dispute():
                 "risk_level": risk_level,
                 "priority": priority,
                 "recommendation": recommendation,
+                "message": f"Query submitted successfully. The query has been routed to the {category} team for further assistance. You will receive an email confirmation shortly.",
             }
         )
 
