@@ -5,6 +5,7 @@
 
 As per the requirement, the task was to build a platform, that can collect disputes realated to banking and do the following:
 
+
 <ul>
 <li> Collect the information over an API </li>
 <li> Classify the dispute and identify the risk</li>
@@ -14,6 +15,10 @@ As per the requirement, the task was to build a platform, that can collect dispu
 </ul>
 
 <hr>
+
+Demo Video Link: https://www.loom.com/share/b12556d5f4be42d8bbd09a22bb53bde3 <br> <br>
+UI Link: https://app.appsmith.com/app/query-submission-portal/page1-67e8377bd45638123b55f111 <br> <br>
+<strong> Since the backend is deployed on a free Render instance, it might take a little longer than expected to get the API response </strong>
 
 So, my thought process to build the solution started with capturing the user requirements. <br>
 -> So, we first need an API endpoint, where the required data can be submitted. <br>
@@ -56,12 +61,16 @@ graph TD;
 ```
 <br><br>
 
+![UI Snapshot](UISnap.png)
+![Team Email Snapshot](Email.png)
+
 # If an AI-assisted or low code tool is available  
 
-So, I tried using GlideApps to build the UI. Glide like platforms can enhance the dev process in a way that the frontend and the integration part need not be coded. A developer can focus on the actual business logic part and the UI and all can be managed by a low-code platform. <br> Glide has the option to call an API, but it doesn't come in the free plan, so I couldn't integrate it, but if that could be done, all the UI work is reduced to a thirtyish minute task. <br> Glide also allows you to connect to data sources where you can dump your data, like Google Sheets or Airtable, but both of them are not in the free plan. If they were available, what could be done is to dump the data into Google Sheets, reducing or eliminating the need for a database. Secondly, using appscript, the new entries can be sent to the business logic server for further processing and team notifications.
+So, if AI-assisted or low-code tools are available, the development can be accelerated to a pretty good extent. I tried using GlideApps, but it had limitted options in the free tier, so I have used AppSmith to build the UI of the application. If AppSmith like tools are available, we don't have to worry much about the UI development, API integration and all. All that can be handled by low code tools that provide drag and drop options for UI development and seamless and minimal code API integration. This way, we can focus on the core business logic and the Gen AI part and not worry about the backend.
 
 <hr>
 
 # Future enhacements
 
 So, as far as future enhancements are concerned, we can extened this tool to reduce manual work for the teams to go and check the systems for the disputes caused. For e.g if there is a transaction that has been processed, but the beneficiary claims non-receipt of funds, the AI tools can be used to call some functions to access source system APIs securely to analyse the problem. To do this, we might have the complexity of masking PII data, but that isn't a problem that can't be solved. What I can think of is implementing Langchain's agentic tools, we can scan source systems for data, find the cause of the problem and respond to the customer immediately and accrurately. <br> Furthermore, the recpmmendations right now are very generic. We can finetune the LLMs over custom banking data that would have the issues and the recommnended solutions, so that the recommendations are very well tailored and personalized.
+
